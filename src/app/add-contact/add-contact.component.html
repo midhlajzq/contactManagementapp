@@ -1,0 +1,91 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <h1>
+                <i class="fa-solid fa-user-plus"></i>
+                Add New Contact Page
+            </h1>
+            <!-- dummy data -->
+            <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam a corrupti porro quae numquam praesentium, iusto nemo quas fugiat repudiandae assumenda accusamus adipisci molestias maiores temporibus deserunt modi distinctio quidem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem tenetur mollitia aspernatur quia sint impedit fugiat doloribus ipsa ab minus consequuntur ducimus alias, eum eos maiores expedita deleniti vitae autem.</p>
+        </div>
+    </div>
+</div>
+<!-- contact form design -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+<!-- form design -->
+<form #addContactForm="ngForm" class="border p-3" >
+    <!-- id -->
+    <div class="mb-2">
+        <input name="id" #id="ngModel" [(ngModel)]="contact.id" placeholder="Contact Id" type="text" class="form-control" required>
+    </div>
+    <!-- validation -->
+    <div *ngIf="id.invalid && id.touched" class="text-danger mb-2">Invalid Id</div>
+    <!-- name -->
+    <div class="mb-2">
+        <input name="name" #name="ngModel" [(ngModel)]="contact.name" placeholder="Contact Name" type="text" class="form-control" required="">
+    </div>
+    <!-- validation -->
+    <div *ngIf="name.invalid && name.touched" class="text-danger mb-2">Invalid Name</div>
+    <!-- image -->
+    <div class="mb-2">
+        <input name="photo" #img="ngModel" [(ngModel)]="contact.photo" placeholder="Copy Image URL" type="text" class="form-control" required>
+
+    </div>
+    <!-- validation -->
+    <div *ngIf="img.invalid && img.touched" class="text-danger mb-2">Invalid img</div>
+    <!-- Mobile -->
+    <div class="mb-2">
+        <input name="mobile" pattern="[0-9]*" minlength="10" maxlength="10" #mobile="ngModel" [(ngModel)]="contact.mobile" placeholder="Contact Mobile" type="text" class="form-control" required>
+    </div>
+    <!-- validation -->
+    <div *ngIf="mobile.invalid && mobile.touched" class="text-danger mb-2">Invalid Mobile</div>
+    <!-- email -->
+    <div class="mb-2">
+        <input name="email" email #email="ngModel" [(ngModel)]="contact.email" placeholder="Contact Email" type="text" class="form-control" required>
+
+    </div>
+    <!-- validation-->
+    <div *ngIf="email.invalid && email.touched" class="text-danger mb-2">Invalid Email </div>
+    <!-- company -->
+    <div class="mb-2">
+        <input name="company" #company="ngModel" [(ngModel)]="contact.company" placeholder="Contact company" type="text" class="form-control" required>
+
+    </div>
+    <!-- validation -->
+    <div *ngIf="company.invalid && company.touched" class="text-danger mb-2">Invalid company</div>
+    <!-- Title -->
+    <div class="mb-2">
+        <input name="title" #title="ngModel" [(ngModel)]="contact.title" placeholder="Contact Title" type="text" class="form-control" required>
+
+    </div>
+    <!-- validation -->
+    <div *ngIf="title.invalid && title.touched" class="text-danger mb-2">Invalid title</div>
+    
+    <div class="mb-2">
+<select name="groupId" pattern="[0-9]" #groupid="ngModel" [(ngModel)]="contact.groupId"  class="form-control" required>
+    <option selected hidden disabled >{{contact.groupId}}</option>
+    <option *ngFor="let groups of group" [value]="groups.id">{{groups.name}}</option>
+   
+</select>
+    </div>
+    <!-- validation -->
+    <div *ngIf="groupid.invalid && groupid.touched" class="text-danger mb-2">Invalid groupId</div>
+    <div class="mb-2">
+<input [disabled]="addContactForm.invalid"  (click)="addcontact(contact)" type="button" class="btn btn-success" value="Create">
+<a routerLink="" class="btn btn-warning ms-5">Close</a>
+    </div>
+
+
+</form>
+        </div>
+        <div class="col-md-6">
+<!-- image -->
+<img class="contact_image mt-5" [src]="contact.photo" alt="contact image">
+
+        </div>
+    </div>
+</div>
+
+

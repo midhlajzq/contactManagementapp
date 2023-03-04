@@ -1,0 +1,23 @@
+
+
+
+          contact managemet app work flow
+          --------------------------------
+1.create a new project
+2.run project
+3.remove all contents from appcomponent.html file
+4.configure external libraries :bootstrap,google fonts ,font awesome in zindax
+5.create components needed for this website
+    -all-contact
+    -add-contact
+    -edit-contact
+    -view-contact
+    -navbar
+    -pagenotfound
+6.set up the path for all components
+7.use selector Router-outlet in appcomponent.html
+8.Design component html view
+9.create angular service for making api call
+10.create model for contact
+
+
